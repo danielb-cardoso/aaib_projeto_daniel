@@ -22,6 +22,9 @@ def connect_mqtt():
     return client
 
 def publish(client):
+    y, sr = librosa.load('grav1.wav') 
+    yy = y.tolist()
+    df = json.dumps(yy)
     msg = df
     result = client.publish(topic+'//sub', msg)
     status = result[0]
