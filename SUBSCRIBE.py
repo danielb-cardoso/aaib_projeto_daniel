@@ -27,10 +27,10 @@ def subscribe(client: mqtt_client):
         data = (msg.payload.decode('utf-8'))
         for i in range (2):
             try:
-                df = pd.read_json(r'C:\Users\ASUS\Desktop\MEB\2 ano\1 semestre\AAIB\projeto_alternativo\msg.json') 
-                df.to_csv(r'C:\Users\ASUS\Desktop\MEB\2 ano\1 semestre\AAIB\projeto_alternativo\new_msg.csv', encoding='utf-8', index=False)        
+                df = pd.read_json(r'msg.json') 
+                df.to_csv(r'new_msg.csv', encoding='utf-8', index=False)        
             except Exception:
-                with open (r'C:\Users\ASUS\Desktop\MEB\2 ano\1 semestre\AAIB\projeto_alternativo\msg.json','w') as file:
+                with open (r'msg.json','w') as file:
                     file.write(data)
 
     client.subscribe(topic)
