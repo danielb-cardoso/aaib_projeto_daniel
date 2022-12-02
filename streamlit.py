@@ -4,8 +4,6 @@ import librosa
 import matplotlib.pyplot as plt
 from librosa import display
 
-#st.title('Extração de Features de um ficheiro áudio')
-
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
 topic = "daniel" 

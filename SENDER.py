@@ -1,6 +1,5 @@
 import librosa
 from paho.mqtt import client as mqtt_client
-import sounddevice as sd
 from scipy.io.wavfile import write
 import json
 import time
@@ -22,35 +21,21 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
-def record(client):
-    print('Recording')
-    fs = 32000  # Frequencia de amostragem
-    seconds = 5  # Duaracao da gravacao
-    
-    recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
-    sd.wait()
-    write('grav1.wav', fs, recording)
-    print('Done Recording')
-    y, sr = librosa.load('grav1.wav') 
-    yy = y.tolist()
-    df = json.dumps(yy)
-    
-    def publish(client):
-        msg = df
-        result = client.publish(topic+'//sub', msg)
-        status = result[0]
-        if status == 0:
-            print(f"Message sent to topic `{topic}`")
-        else:
-            print(f"Failed to send message to topic {topic}")
-    publish(client)
+def publish(client):
+    msg = df
+    result = client.publish(topic+'//sub', msg)
+    status = result[0]
+    if status == 0:
+        print(f"Message sent to topic `{topic}`")
+    else:
+        print(f"Failed to send message to topic {topic}")
         
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, start):
         print(f"Received start from `{start.topic}` topic")
         inicio = (start.payload.decode('utf-8'))
         if inicio == 'start':
-            record(client)
+            publish(client)
 
     client.subscribe(topic)
     client.on_message = on_message
