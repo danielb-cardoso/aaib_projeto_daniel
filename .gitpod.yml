@@ -22,13 +22,13 @@ tasks:
           #Install other Python Libraries
           #python -m pip install sounddevice
 
-          sudo apt-get install portaudio19-dev
+          sudo apt-get install libsndfile1
+          sudo pip install librosa
           python -m pip install scipy
           python -m pip install matplotlib
           python -m pip install pandas
           python -m pip install time
           python -m pip install json
-          python -m pip install librosa
           python -m pip install
           pip install plotly==5.11.0
       )
