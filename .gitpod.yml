@@ -32,4 +32,13 @@ tasks:
           python -m pip install
           pip install plotly==5.11.0
       )
-    command: streamlit run onetapstream.py
+    command: streamlit run streamlit.py
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 1883
+    onOpen: ignore
+  - port: 8501
+    name: Web App
+    onOpen: open-browser
+    visibility: public
