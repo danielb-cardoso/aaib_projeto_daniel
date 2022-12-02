@@ -41,4 +41,4 @@ ports:
   - port: 8501
     name: Web App
     onOpen: open-browser
-    visibility: public
+    visibility: public
