@@ -21,11 +21,15 @@ tasks:
 
           #Install other Python Libraries
           #python -m pip install sounddevice
-          #python -m pip install pyaudio
 
           sudo apt-get install portaudio19-dev
           python -m pip install scipy
           python -m pip install matplotlib
+          python -m pip install pandas
+          python -m pip install time
+          python -m pip install json
+          python -m pip install librosa
+          python -m pip install
           pip install plotly==5.11.0
       )
     command: streamlit run onetapstream.py
