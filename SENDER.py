@@ -48,7 +48,7 @@ def publish(client):
         
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, start):
-        print(f"Received start from `{start.topic1}` topic")
+        print(f"Received start from `{topic1}` topic")
         inicio = (start.payload.decode('utf-8'))
         if inicio == 'start':
             publish(client)
