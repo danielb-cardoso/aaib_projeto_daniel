@@ -26,8 +26,10 @@ if st.button('Start'):
     publish(client)
 
     st.header('Extração de Features')
-    y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
-    
+    dados=np.loadtxt(r'new_msg.csv', delimiter=',', dtype='str' )
+    y = np.asarray(dados, dtype=np.float64)
+    sr=22050
+
     # espetrograma
     st.subheader('Espectograma')
     
