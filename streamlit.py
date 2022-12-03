@@ -25,8 +25,9 @@ st.title('Extração de Features de um ficheiro áudio')
 
 if st.button('Start'):        
     publish(client)
-    
+
 if st.button('Extração'):
+    
     st.header('Extração de Features')
     dados=np.loadtxt(r'new_msg.csv', delimiter=',', dtype='str' )
     y = np.asarray(dados, dtype=np.float64)
