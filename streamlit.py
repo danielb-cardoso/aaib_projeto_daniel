@@ -7,7 +7,7 @@ import numpy as np
 
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
-topic = "daniel" 
+topic = "something" 
 
 client = mqtt_client.Client()
 client.connect(broker, port)
@@ -27,7 +27,7 @@ if st.button('Start'):
     publish(client)
 
 if st.button('Extração'):
-    
+
     st.header('Extração de Features')
     dados=np.loadtxt(r'new_msg.csv', delimiter=',', dtype='str' )
     y = np.asarray(dados, dtype=np.float64)
