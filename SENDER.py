@@ -21,6 +21,19 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
+#def record(client):
+#    print('Recording')
+#    fs = 32000  # Frequencia de amostragem
+#    seconds = 5  # Duaracao da gravacao
+    
+#    recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
+#    sd.wait()
+#    write('grav1.wav', fs, recording)
+#    print('Done Recording')
+#    y, sr = librosa.load('grav1.wav') 
+#    yy = y.tolist()
+#    df = json.dumps(yy)
+
 def publish(client):
     y, sr = librosa.load('grav1.wav') 
     yy = y.tolist()
